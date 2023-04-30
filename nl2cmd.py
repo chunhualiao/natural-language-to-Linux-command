@@ -15,14 +15,9 @@ def get_command(prompt):
     #response = openai.Completion.create( # single turn: text completion models only
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo", # engine
-#        prompt=f"Translate the following English description to a Linux command: {prompt}",
         messages=[
             {"role": "system", "content": """
-            You are a helpful assistant that translates an English request into Linux commands. 
-            Please respond at most 3 lines of code, strictly in the following format:
-            # comment explaining the suggested commands 
-            # comment explaining their options, if any. This line is optional.
-            actual suggested commands
+            You are a helpful chat assistant that answer questions from users using a terminal of Linux computer.  
             """},
             {"role": "user", "content": f"{prompt}"}
         ],
@@ -44,7 +39,10 @@ if __name__ == "__main__":
 
     #prompt = sys.argv[1]
     prompt = ' '.join(sys.argv[1:])
-    command = get_command(prompt)
-    #print(f"Suggested command: {command}")
-    print(f"{command}")
+    
+    #prompt =f"Translate the following English description to a Linux command: {prompt}"
+    
+    response = get_command(prompt)
+    #print(f"Suggested command: {response}")
+    print(f"{response}")
 
