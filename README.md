@@ -1,9 +1,9 @@
 # natural-language-to-Linux-command
 
 Original goal
-* convert natual language requests into Linux command
+* converting natual language requests into Linux commands
 
-Additional request
+Additional request: TODO
 * Chat with GPT within a terminal , help finish complex jobs in multiple rounds, with debugging support.
 
 
