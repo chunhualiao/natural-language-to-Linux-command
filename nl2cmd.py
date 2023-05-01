@@ -22,7 +22,7 @@ def get_command(prompt):
             {"role": "user", "content": f"{prompt}"}
         ],
         temperature=0.5,
-        max_tokens=100,
+        max_tokens=200,
         #top_p=1,
         #frequency_penalty=0,
         #presence_penalty=0,
