@@ -24,6 +24,11 @@ source .venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
+Create a file named .env with your OpenAI API KEY in it:
+```
+OPENAI_API_KEY="sk-*****"
+```
+
 # Usage
 
 We recommend to set an alias
