@@ -1,7 +1,7 @@
 # natural-language-to-Linux-command
 
 Original goal
-* converting natual language requests into Linux commands
+* converting natual language requests into Linux commands, using OpenAI's API (e.g. GPT-3 or GPT-4 models)
 
 Additional request: TODO
 * Chat with GPT within a terminal , help finish complex jobs in multiple rounds, with debugging support.
