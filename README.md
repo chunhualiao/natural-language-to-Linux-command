@@ -9,15 +9,20 @@ Additional request
 
 # Installation
 
-We recommend Python virtual environment to install this script
+Obtain the script:
 
+```
 git clone https://github.com/chunhualiao/natural-language-to-Linux-command nl2cmd
 cd nl2cmd
+```
+
+We recommend to use Python virtual environment to install this script
+
+```
 python3 -m venv .venv
-
 source .venv/bin/activate
-
 pip3 install -r requirements.txt
+```
 
 # Usage
 
