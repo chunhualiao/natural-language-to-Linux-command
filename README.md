@@ -29,11 +29,18 @@ Create a file named .env with your OpenAI API KEY in it:
 OPENAI_API_KEY="sk-*****"
 ```
 
-# Usage
-
 We recommend to set an alias
+```
+export NL2CMD_HOME=/home/liao6/workspace/nl2cmd
+alias askgpt='$NL2CMD_HOME/.venv/bin/python3 $NL2CMD_HOME/nl2cmd.py'
+```
 
-alias askgpt='/home/liao6/workspace/nl2cmd/.venv/bin/python3 /home/liao6/workspace/nl2cmd/nl2cmd.py'
+# Testing
+
+```
+$ askgpt what is your name?
+I am an AI language model and do not have a name. You can call me "Chat Assistant" or "AI Assistant". How can I assist you today?
+```
 
 [liao6@tux439 nl2cmd]$ askgpt how to list files with year info.?
 
