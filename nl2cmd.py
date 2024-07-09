@@ -20,7 +20,7 @@ def get_command(client, prompt):
         model="gpt-3.5-turbo", # engine
         messages=[
             {"role": "system", "content": """
-            You are a helpful chat assistant that answer questions from users using a terminal of Linux computer.  
+            You are a helpful chat assistant that answers questions from users using a terminal on a Linux computer.  
             """},
             {"role": "user", "content": f"{prompt}"}
         ],
