@@ -19,15 +19,21 @@ cd nl2cmd
 We recommend to use Python virtual environment to install this script
 
 ```
-python3 -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-Create a file named .env with your OpenAI API KEY in it:
+Create a file named set.openai.key with your OpenAI API KEY in it:
 ```
-OPENAI_API_KEY="sk-*****"
+export OPENAI_API_KEY="sk-*****"
 ```
+
+Then source it to load the key into the environment variable
+
+```
+source set.openai.key
+``` 
 
 We recommend to set an alias
 ```

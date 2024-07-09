@@ -1,19 +1,22 @@
-import openai
+from openai import OpenAI
 import sys
 import os
 from dotenv import load_dotenv
 
-load_dotenv() # load environment variables from the .env file
-
-# Replace with your own API key
-openai.api_key = os.getenv("OPENAI_API_KEY") #"your-api-key"
+# Function to get the OpenAI API key from environment variables
+def get_openai_api_key():
+    api_key = os.getenv('OPENAI_API_KEY')
+    if not api_key:
+        raise ValueError("OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
+    # assign to a global variable!!
+    return api_key
 
 # get command line from GPT-3 from prompt
 # davinci: completion model: single round
 # gpt-3.5-turbo: chat model
-def get_command(prompt):
+def get_command(client, prompt):
     #response = openai.Completion.create( # single turn: text completion models only
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo", # engine
         messages=[
             {"role": "system", "content": """
@@ -21,7 +24,7 @@ def get_command(prompt):
             """},
             {"role": "user", "content": f"{prompt}"}
         ],
-        temperature=0.5,
+        temperature=0,
         max_tokens=100,
         #top_p=1,
         #frequency_penalty=0,
@@ -29,7 +32,7 @@ def get_command(prompt):
     )
 
    # command = response.choices[0].text.strip()
-    command = response['choices'][0]['message']['content'].strip()
+    command = response.choices[0].message.content.strip()
     return command
 
 if __name__ == "__main__":
@@ -42,7 +45,8 @@ if __name__ == "__main__":
     
     #prompt =f"Translate the following English description to a Linux command: {prompt}"
     
-    response = get_command(prompt)
+    client = OpenAI(api_key=get_openai_api_key())
+    response = get_command(client, prompt)
     #print(f"Suggested command: {response}")
     print(f"{response}")
 
